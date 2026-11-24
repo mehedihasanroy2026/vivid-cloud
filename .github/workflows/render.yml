@@ -75,4 +75,7 @@ jobs:
           ls -la up
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: chunk-${{ matrix.chunk }}, path: up, retention-days: 3}
+        with:
+          name: chunk-${{ matrix.chunk }}
+          path: up
+          retention-days: 3

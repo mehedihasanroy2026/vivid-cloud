@@ -36,7 +36,7 @@ for c in "$R"/dl/chunk-*; do
   [ -f "$c/starts.txt" ] || continue
   while read -r name start; do
     mkdir -p "$R/shots/$name"
-    ffmpeg -v error -y -i "$c/$name.mp4" -start_number "$start" "$R/shots/$name/f_%05d.png"
+    ffmpeg -nostdin -v error -y -i "$c/$name.mp4" -start_number "$start" "$R/shots/$name/f_%05d.png"
   done < <(tr -d '\r' < "$c/starts.txt")
 done
 echo "$(find "$R/shots" -name '*.png' | wc -l) frames in $R/shots"

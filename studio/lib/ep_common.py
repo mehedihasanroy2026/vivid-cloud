@@ -431,8 +431,20 @@ def render(args, sets, finish=None, glow=0.35):
             json.dump(plan, open(os.path.join(root, 'shots', 'plan.json'), 'w'), indent=1)
             for mk in sc.timeline_markers:      # the camera is set per shot here; markers would switch it in the tails
                 mk.camera = None
+        mine = None
+        if os.environ.get('CHUNK'):    # cloud: CHUNK=i/N renders only this job's share of the shots (balanced by frames)
+            ci, cn = [int(x) for x in os.environ['CHUNK'].split('/')]
+            load, mine = [0] * cn, set()
+            for j in sorted(range(len(plan)), key=lambda j: -(plan[j]['f1'] - plan[j]['f0'])):
+                b = load.index(min(load))
+                load[b] += plan[j]['f1'] - plan[j]['f0'] + 1
+                if b == ci:
+                    mine.add(plan[j]['name'])
+            print(f'### chunk {ci}/{cn}: {sorted(mine)}', flush=True)
         for i, (n, t0) in enumerate(T):
             if args.only and n not in args.only:
+                continue
+            if mine is not None and n not in mine:
                 continue
             f0, f1 = plan[i]['f0'], plan[i]['f1']
             only_set(set_of[n])

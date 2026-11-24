@@ -1,0 +1,78 @@
+name: render
+# Renders one episode split across parallel runners. Each runner renders its share of the shots (CHUNK=i/N),
+# encodes every shot to a near-lossless mp4 and uploads it. tools/cloud.sh downloads and assembles on the laptop.
+on:
+  workflow_dispatch:
+    inputs:
+      ep: {description: 'episode folder under studio/episodes', required: true}
+      chunks: {description: 'parallel runners (1-20)', default: '20'}
+      pct: {description: 'resolution percent (50 = final, 25 = preview)', default: '50'}
+      wide: {description: '1 = 1920x1080 long form, empty = 1080x1920', default: '1'}
+      maxf: {description: 'test only: max frames per shot (empty = all)', default: ''}
+
+run-name: render ${{ inputs.ep }} pct${{ inputs.pct }} x${{ inputs.chunks }}
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      list: ${{ steps.m.outputs.list }}
+    steps:
+      - id: m
+        run: echo "list=$(python3 -c 'import json; print(json.dumps(list(range(int("${{ inputs.chunks }}")))))')" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: ${{ fromJSON(needs.plan.outputs.list) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: system libs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxkbcommon0 libxkbcommon-x11-0 \
+            libsm6 libxxf86vm1 libxfixes3 libxrender1 libxrandr2 libxinerama1 libxcursor1 ffmpeg > /dev/null
+      - name: cache blender
+        id: cb
+        uses: actions/cache@v4
+        with: {path: ~/blender, key: blender-5.2.3}
+      - name: get blender
+        if: steps.cb.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/blender
+          curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
+      - name: render
+        env:
+          CHUNK: ${{ matrix.chunk }}/${{ inputs.chunks }}
+          WIDE: ${{ inputs.wide }}
+          MAXF: ${{ inputs.maxf }}
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          GALLIUM_DRIVER: llvmpipe
+        run: |
+          mkdir -p out/frames
+          START=$(date +%s)
+          xvfb-run -a -s "-screen 0 1920x1080x24" ~/blender/blender -b --factory-startup \
+            -P "studio/episodes/${{ inputs.ep }}/build.py" -- --root "$PWD/studio" --mode anim \
+            --pct ${{ inputs.pct }} --samples 8 --out "$PWD/out/frames/f_#####" > out/log.txt 2>&1 || true
+          grep -E "###" out/log.txt || true
+          echo "chunk ${{ matrix.chunk }}: $(find out/shots -name '*.png' | wc -l) frames in $(( $(date +%s) - START )) s"
+          if grep -q Traceback out/log.txt; then grep -B2 -A12 Traceback out/log.txt; exit 1; fi
+      - name: encode shots
+        run: |
+          mkdir -p up
+          cp out/shots/plan.json up/
+          for d in out/shots/*/; do
+            n=$(basename "$d"); f0=$(ls "$d" | head -1 | grep -o '[0-9]\+')
+            ffmpeg -v error -framerate 30 -start_number $((10#$f0)) -i "$d/f_%05d.png" \
+              -c:v libx264 -crf 8 -preset medium -pix_fmt yuv444p "up/$n.mp4"
+            echo "$n $((10#$f0))" >> up/starts.txt
+          done
+          cp out/log.txt up/log_${{ matrix.chunk }}.txt
+          ls -la up
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: chunk-${{ matrix.chunk }}, path: up, retention-days: 3}

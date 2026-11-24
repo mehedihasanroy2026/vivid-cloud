@@ -1,0 +1,51 @@
+name: speedtest
+# Renders the first N frames of one EP30 shot with Eevee on a CPU-only runner (Mesa llvmpipe) and times it.
+on:
+  workflow_dispatch:
+    inputs:
+      shot: {description: 'shot name', default: 'rub'}
+      frames: {description: 'frames to render', default: '30'}
+      wide: {description: '1 = 1920x1080 (long form), empty = 1080x1920', default: '1'}
+      pct: {description: 'resolution percent', default: '50'}
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - name: system libs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1 libegl1 libgl1-mesa-dri libxi6 libxkbcommon0 libxkbcommon-x11-0 \
+            libsm6 libxxf86vm1 libxfixes3 libxrender1 libxrandr2 libxinerama1 libxcursor1 mesa-utils > /dev/null
+          nproc; free -h
+      - name: cache blender
+        id: cb
+        uses: actions/cache@v4
+        with: {path: ~/blender, key: blender-5.2.3}
+      - name: get blender
+        if: steps.cb.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ~/blender
+          curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.3-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
+      - name: render
+        env:
+          MAXF: ${{ inputs.frames }}
+          WIDE: ${{ inputs.wide }}
+          LIBGL_ALWAYS_SOFTWARE: '1'
+          GALLIUM_DRIVER: llvmpipe
+        run: |
+          mkdir -p out/frames
+          xvfb-run -a -s "-screen 0 1920x1080x24" glxinfo -B | grep -iE "renderer|version" || true
+          START=$(date +%s)
+          xvfb-run -a -s "-screen 0 1920x1080x24" ~/blender/blender -b --factory-startup \
+            -P studio/episodes/30_eye_stars/build.py -- --root "$PWD/studio" --mode anim --only ${{ inputs.shot }} \
+            --pct ${{ inputs.pct }} --samples 8 --out "$PWD/out/frames/f_#####" 2>&1 | tee out/log.txt | grep -E "###|Fra:.*Time|Error|Traceback|GPU|OpenGL" | tail -60
+          END=$(date +%s)
+          N=$(find out -name "*.png" | wc -l)
+          echo "frames=$N total_s=$((END-START))" | tee out/timing.txt
+          grep -q Traceback out/log.txt && exit 1 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: speedtest-frames, path: out, retention-days: 7}

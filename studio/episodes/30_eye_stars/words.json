@@ -1,0 +1,647 @@
+[
+ {
+  "word": "Rub",
+  "start": 0.03,
+  "end": 0.259
+ },
+ {
+  "word": "your",
+  "start": 0.259,
+  "end": 0.488
+ },
+ {
+  "word": "closed",
+  "start": 0.488,
+  "end": 0.893
+ },
+ {
+  "word": "eyes",
+  "start": 0.893,
+  "end": 1.122
+ },
+ {
+  "word": "and",
+  "start": 1.122,
+  "end": 1.351
+ },
+ {
+  "word": "you'll",
+  "start": 1.351,
+  "end": 1.58
+ },
+ {
+  "word": "see",
+  "start": 1.58,
+  "end": 1.809
+ },
+ {
+  "word": "a",
+  "start": 1.809,
+  "end": 2.038
+ },
+ {
+  "word": "light",
+  "start": 2.038,
+  "end": 2.267
+ },
+ {
+  "word": "show.",
+  "start": 2.267,
+  "end": 2.496
+ },
+ {
+  "word": "Swirls,",
+  "start": 2.731,
+  "end": 3.075
+ },
+ {
+  "word": "sparkles,",
+  "start": 3.075,
+  "end": 3.682
+ },
+ {
+  "word": "glowing",
+  "start": 3.682,
+  "end": 4.29
+ },
+ {
+  "word": "checkerboards.",
+  "start": 4.29,
+  "end": 5.162
+ },
+ {
+  "word": "But",
+  "start": 5.551,
+  "end": 5.747
+ },
+ {
+  "word": "your",
+  "start": 5.747,
+  "end": 5.943
+ },
+ {
+  "word": "eyes",
+  "start": 5.943,
+  "end": 6.139
+ },
+ {
+  "word": "are",
+  "start": 6.139,
+  "end": 6.336
+ },
+ {
+  "word": "shut.",
+  "start": 6.336,
+  "end": 6.532
+ },
+ {
+  "word": "So",
+  "start": 6.836,
+  "end": 7.046
+ },
+ {
+  "word": "where",
+  "start": 7.046,
+  "end": 7.256
+ },
+ {
+  "word": "is",
+  "start": 7.256,
+  "end": 7.467
+ },
+ {
+  "word": "that",
+  "start": 7.467,
+  "end": 7.677
+ },
+ {
+  "word": "light",
+  "start": 7.677,
+  "end": 7.887
+ },
+ {
+  "word": "coming",
+  "start": 7.887,
+  "end": 8.259
+ },
+ {
+  "word": "from?",
+  "start": 8.259,
+  "end": 8.469
+ },
+ {
+  "word": "Nowhere.",
+  "start": 9.014,
+  "end": 9.53
+ },
+ {
+  "word": "There",
+  "start": 9.914,
+  "end": 10.119
+ },
+ {
+  "word": "is",
+  "start": 10.119,
+  "end": 10.325
+ },
+ {
+  "word": "no",
+  "start": 10.325,
+  "end": 10.53
+ },
+ {
+  "word": "light.",
+  "start": 10.53,
+  "end": 10.735
+ },
+ {
+  "word": "The",
+  "start": 11.069,
+  "end": 11.276
+ },
+ {
+  "word": "back",
+  "start": 11.276,
+  "end": 11.484
+ },
+ {
+  "word": "of",
+  "start": 11.484,
+  "end": 11.691
+ },
+ {
+  "word": "your",
+  "start": 11.691,
+  "end": 11.899
+ },
+ {
+  "word": "eye",
+  "start": 11.899,
+  "end": 12.107
+ },
+ {
+  "word": "is",
+  "start": 12.107,
+  "end": 12.314
+ },
+ {
+  "word": "covered",
+  "start": 12.314,
+  "end": 12.841
+ },
+ {
+  "word": "in",
+  "start": 12.841,
+  "end": 13.049
+ },
+ {
+  "word": "cells",
+  "start": 13.049,
+  "end": 13.256
+ },
+ {
+  "word": "that",
+  "start": 13.256,
+  "end": 13.464
+ },
+ {
+  "word": "fire",
+  "start": 13.464,
+  "end": 13.671
+ },
+ {
+  "word": "a",
+  "start": 13.671,
+  "end": 13.879
+ },
+ {
+  "word": "signal",
+  "start": 13.879,
+  "end": 14.246
+ },
+ {
+  "word": "when",
+  "start": 14.246,
+  "end": 14.453
+ },
+ {
+  "word": "light",
+  "start": 14.453,
+  "end": 14.661
+ },
+ {
+  "word": "hits",
+  "start": 14.661,
+  "end": 14.869
+ },
+ {
+  "word": "them,",
+  "start": 14.869,
+  "end": 15.076
+ },
+ {
+  "word": "and",
+  "start": 15.258,
+  "end": 15.531
+ },
+ {
+  "word": "your",
+  "start": 15.531,
+  "end": 15.803
+ },
+ {
+  "word": "brain",
+  "start": 15.803,
+  "end": 16.076
+ },
+ {
+  "word": "reads",
+  "start": 16.076,
+  "end": 16.349
+ },
+ {
+  "word": "that",
+  "start": 16.349,
+  "end": 16.621
+ },
+ {
+  "word": "signal",
+  "start": 16.621,
+  "end": 17.104
+ },
+ {
+  "word": "as",
+  "start": 17.104,
+  "end": 17.376
+ },
+ {
+  "word": "\"light.\"",
+  "start": 17.376,
+  "end": 17.649
+ },
+ {
+  "word": "But",
+  "start": 18.139,
+  "end": 18.43
+ },
+ {
+  "word": "those",
+  "start": 18.43,
+  "end": 18.722
+ },
+ {
+  "word": "cells",
+  "start": 18.722,
+  "end": 19.013
+ },
+ {
+  "word": "are",
+  "start": 19.013,
+  "end": 19.305
+ },
+ {
+  "word": "dumb.",
+  "start": 19.305,
+  "end": 19.596
+ },
+ {
+  "word": "Squeeze",
+  "start": 19.985,
+  "end": 20.209
+ },
+ {
+  "word": "them,",
+  "start": 20.209,
+  "end": 20.433
+ },
+ {
+  "word": "and",
+  "start": 20.433,
+  "end": 20.657
+ },
+ {
+  "word": "they",
+  "start": 20.657,
+  "end": 20.881
+ },
+ {
+  "word": "fire",
+  "start": 20.881,
+  "end": 21.105
+ },
+ {
+  "word": "anyway.",
+  "start": 21.105,
+  "end": 21.674
+ },
+ {
+  "word": "So",
+  "start": 21.975,
+  "end": 22.197
+ },
+ {
+  "word": "when",
+  "start": 22.197,
+  "end": 22.419
+ },
+ {
+  "word": "you",
+  "start": 22.419,
+  "end": 22.641
+ },
+ {
+  "word": "push",
+  "start": 22.641,
+  "end": 22.863
+ },
+ {
+  "word": "on",
+  "start": 22.863,
+  "end": 23.085
+ },
+ {
+  "word": "your",
+  "start": 23.085,
+  "end": 23.307
+ },
+ {
+  "word": "eyeball,",
+  "start": 23.307,
+  "end": 23.699
+ },
+ {
+  "word": "you're",
+  "start": 23.699,
+  "end": 23.921
+ },
+ {
+  "word": "pressing",
+  "start": 23.921,
+  "end": 24.313
+ },
+ {
+  "word": "the",
+  "start": 24.313,
+  "end": 24.535
+ },
+ {
+  "word": "light",
+  "start": 24.535,
+  "end": 24.757
+ },
+ {
+  "word": "button",
+  "start": 24.757,
+  "end": 25.15
+ },
+ {
+  "word": "by",
+  "start": 25.15,
+  "end": 25.372
+ },
+ {
+  "word": "hand,",
+  "start": 25.372,
+  "end": 25.593
+ },
+ {
+  "word": "and",
+  "start": 25.593,
+  "end": 25.815
+ },
+ {
+  "word": "your",
+  "start": 25.815,
+  "end": 26.037
+ },
+ {
+  "word": "brain",
+  "start": 26.037,
+  "end": 26.259
+ },
+ {
+  "word": "just",
+  "start": 26.259,
+  "end": 26.481
+ },
+ {
+  "word": "shows",
+  "start": 26.481,
+  "end": 26.703
+ },
+ {
+  "word": "you",
+  "start": 26.703,
+  "end": 26.925
+ },
+ {
+  "word": "fireworks.",
+  "start": 26.925,
+  "end": 27.488
+ },
+ {
+  "word": "Scientists",
+  "start": 27.752,
+  "end": 28.235
+ },
+ {
+  "word": "call",
+  "start": 28.235,
+  "end": 28.507
+ },
+ {
+  "word": "them",
+  "start": 28.507,
+  "end": 28.78
+ },
+ {
+  "word": "phosphenes.",
+  "start": 28.96,
+  "end": 29.627
+ },
+ {
+  "word": "Stand",
+  "start": 30.025,
+  "end": 30.281
+ },
+ {
+  "word": "up",
+  "start": 30.281,
+  "end": 30.537
+ },
+ {
+  "word": "too",
+  "start": 30.537,
+  "end": 30.792
+ },
+ {
+  "word": "fast,",
+  "start": 30.792,
+  "end": 31.048
+ },
+ {
+  "word": "your",
+  "start": 31.048,
+  "end": 31.304
+ },
+ {
+  "word": "brain",
+  "start": 31.304,
+  "end": 31.56
+ },
+ {
+  "word": "gets",
+  "start": 31.56,
+  "end": 31.816
+ },
+ {
+  "word": "a",
+  "start": 31.816,
+  "end": 32.072
+ },
+ {
+  "word": "little",
+  "start": 32.072,
+  "end": 32.524
+ },
+ {
+  "word": "less",
+  "start": 32.524,
+  "end": 32.78
+ },
+ {
+  "word": "blood,",
+  "start": 32.78,
+  "end": 33.036
+ },
+ {
+  "word": "and",
+  "start": 33.036,
+  "end": 33.292
+ },
+ {
+  "word": "the",
+  "start": 33.292,
+  "end": 33.548
+ },
+ {
+  "word": "same",
+  "start": 33.548,
+  "end": 33.804
+ },
+ {
+  "word": "cells",
+  "start": 33.804,
+  "end": 34.059
+ },
+ {
+  "word": "misfire.",
+  "start": 34.059,
+  "end": 34.512
+ },
+ {
+  "word": "Stars.",
+  "start": 34.812,
+  "end": 35.411
+ },
+ {
+  "word": "Which",
+  "start": 35.673,
+  "end": 35.933
+ },
+ {
+  "word": "means",
+  "start": 35.933,
+  "end": 36.193
+ },
+ {
+  "word": "every",
+  "start": 36.383,
+  "end": 36.912
+ },
+ {
+  "word": "colour",
+  "start": 36.912,
+  "end": 37.28
+ },
+ {
+  "word": "you've",
+  "start": 37.28,
+  "end": 37.488
+ },
+ {
+  "word": "ever",
+  "start": 37.488,
+  "end": 37.857
+ },
+ {
+  "word": "seen",
+  "start": 37.857,
+  "end": 38.065
+ },
+ {
+  "word": "was",
+  "start": 38.065,
+  "end": 38.273
+ },
+ {
+  "word": "never",
+  "start": 38.273,
+  "end": 38.642
+ },
+ {
+  "word": "out",
+  "start": 38.642,
+  "end": 38.85
+ },
+ {
+  "word": "there.",
+  "start": 38.85,
+  "end": 39.058
+ },
+ {
+  "word": "It",
+  "start": 39.514,
+  "end": 39.724
+ },
+ {
+  "word": "was",
+  "start": 39.724,
+  "end": 39.933
+ },
+ {
+  "word": "always",
+  "start": 39.933,
+  "end": 40.304
+ },
+ {
+  "word": "in",
+  "start": 40.304,
+  "end": 40.513
+ },
+ {
+  "word": "here.",
+  "start": 40.513,
+  "end": 40.723
+ },
+ {
+  "word": "Now...",
+  "start": 41.215,
+  "end": 41.764
+ },
+ {
+  "word": "rub",
+  "start": 42.365,
+  "end": 42.45
+ },
+ {
+  "word": "your",
+  "start": 42.45,
+  "end": 42.534
+ },
+ {
+  "word": "eyes.",
+  "start": 43.083,
+  "end": 43.87
+ }
+]
